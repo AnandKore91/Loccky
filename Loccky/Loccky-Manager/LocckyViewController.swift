@@ -45,7 +45,13 @@ public class LocckyViewController: UIViewController {
         configureButtonUI([btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnZero])
         
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
-
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if LocckyViewController.isPasswordSet() == false{
+            lblInstructions.text = "Set Passcode"
+        }
     }
 
     @objc func willResignActive(){
@@ -57,8 +63,9 @@ public class LocckyViewController: UIViewController {
     
     @IBAction func passcodeEntered(_ sender: UIButton) {
         print("Btn Pressed: \(sender.tag)")
-        if isPasswordSet(){
+        if LocckyViewController.isPasswordSet(){
             arrPasscode.append("\(sender.tag)")
+            lblInstructions.text = "Enter Passcode"
             if arrPasscode.count == 4{
                 if arrPasscode.joined() == getPasscode(){
                     //--- Success.
@@ -66,11 +73,12 @@ public class LocckyViewController: UIViewController {
                 }else{
                     //--- Invalid Passcode.
                     arrPasscode.removeAll()
+                    lblInstructions.text = "Wrong Passcode. Retry"
                 }
             }
         }else{
             arrPasscode.append("\(sender.tag)")
-            
+            lblInstructions.text = "Set Passcode"
             if arrPasscode.count == 4{
                 if arrTmpPwd.isEmpty{
                     arrTmpPwd.append(contentsOf: arrPasscode)
@@ -94,8 +102,10 @@ public class LocckyViewController: UIViewController {
     
     @IBAction func btnErasePressed(_ sender: UIButton) {
         print("Btn erase pressed.")
-        arrPasscode.remove(at: arrPasscode.count - 1)
-        validatePasscodeCount()
+        if !arrPasscode.isEmpty{
+            arrPasscode.remove(at: arrPasscode.count - 1)
+            validatePasscodeCount()
+        }
     }
     
     @IBAction func btnFingerPrintPressed(_ sender: UITapGestureRecognizer) {
@@ -125,8 +135,8 @@ extension LocckyViewController{
 //MARK:- Passcode management.
 extension LocckyViewController{
     fileprivate static let passcodeKey = "my_passcode"
-    @discardableResult fileprivate func isPasswordSet() -> Bool{
-        if getPasscode() != nil{
+    @discardableResult public class func isPasswordSet() -> Bool{
+        if LocckyViewController().getPasscode() != nil{
             return true
         }
         return false
