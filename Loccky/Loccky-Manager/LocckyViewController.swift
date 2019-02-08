@@ -117,6 +117,7 @@ public class LocckyViewController: UIViewController {
                         self.willResignActive()
                     }else{
                         self.lblInstructions.text = error?.localizedDescription ?? ""
+                        LocckyViewController.present()
                     }
                 }
             }

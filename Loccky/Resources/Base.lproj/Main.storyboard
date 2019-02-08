@@ -16,7 +16,18 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tmp.png" translatesAutoresizingMaskIntoConstraints="NO" id="fHY-fD-qkz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fHY-fD-qkz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6uQ-W6-yob"/>
+                            <constraint firstItem="fHY-fD-qkz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9kh-ia-PVZ"/>
+                            <constraint firstItem="fHY-fD-qkz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="FBV-AC-DrW"/>
+                            <constraint firstItem="fHY-fD-qkz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="c9f-7h-2cb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -25,4 +36,7 @@
             <point key="canvasLocation" x="133.59999999999999" y="121.88905547226388"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tmp.png" width="750" height="1334"/>
+    </resources>
 </document>
