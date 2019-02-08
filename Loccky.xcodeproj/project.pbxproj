@@ -17,6 +17,9 @@
 		0C81CFFF220D60AD002D8F26 /* imgFingerPrint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFFC220D60AD002D8F26 /* imgFingerPrint@2x.png */; };
 		0C81D000220D60AD002D8F26 /* imgFingerPrint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFFD220D60AD002D8F26 /* imgFingerPrint.png */; };
 		0C81D001220D60AD002D8F26 /* imgFingerPrint@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFFE220D60AD002D8F26 /* imgFingerPrint@3x.png */; };
+		0C81D006220D7B4D002D8F26 /* imgErase@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81D003220D7B4C002D8F26 /* imgErase@3x.png */; };
+		0C81D007220D7B4D002D8F26 /* imgErase.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81D004220D7B4C002D8F26 /* imgErase.png */; };
+		0C81D008220D7B4D002D8F26 /* imgErase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81D005220D7B4D002D8F26 /* imgErase@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		0C81CFFC220D60AD002D8F26 /* imgFingerPrint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgFingerPrint@2x.png"; sourceTree = "<group>"; };
 		0C81CFFD220D60AD002D8F26 /* imgFingerPrint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgFingerPrint.png; sourceTree = "<group>"; };
 		0C81CFFE220D60AD002D8F26 /* imgFingerPrint@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgFingerPrint@3x.png"; sourceTree = "<group>"; };
+		0C81D003220D7B4C002D8F26 /* imgErase@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgErase@3x.png"; sourceTree = "<group>"; };
+		0C81D004220D7B4C002D8F26 /* imgErase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgErase.png; sourceTree = "<group>"; };
+		0C81D005220D7B4D002D8F26 /* imgErase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgErase@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 				0C81CFFD220D60AD002D8F26 /* imgFingerPrint.png */,
 				0C81CFFC220D60AD002D8F26 /* imgFingerPrint@2x.png */,
 				0C81CFFE220D60AD002D8F26 /* imgFingerPrint@3x.png */,
+				0C81D004220D7B4C002D8F26 /* imgErase.png */,
+				0C81D005220D7B4D002D8F26 /* imgErase@2x.png */,
+				0C81D003220D7B4C002D8F26 /* imgErase@3x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -161,8 +170,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C81D007220D7B4D002D8F26 /* imgErase.png in Resources */,
+				0C81D008220D7B4D002D8F26 /* imgErase@2x.png in Resources */,
 				0C81CFEF220D59B5002D8F26 /* LaunchScreen.storyboard in Resources */,
 				0C81CFFF220D60AD002D8F26 /* imgFingerPrint@2x.png in Resources */,
+				0C81D006220D7B4D002D8F26 /* imgErase@3x.png in Resources */,
 				0C81D001220D60AD002D8F26 /* imgFingerPrint@3x.png in Resources */,
 				0C81D000220D60AD002D8F26 /* imgFingerPrint.png in Resources */,
 				0C81CFFB220D5A31002D8F26 /* LocckyViewController.xib in Resources */,
