@@ -44,12 +44,14 @@ public class LocckyViewController: UIViewController {
         //--- Setup ui
         configureButtonUI([btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnZero])
         
-        
-        for index in 0..<4{
-            print(index)
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+
     }
 
+    @objc func willResignActive(){
+        NotificationCenter.default.removeObserver(self)
+        dismiss(animated: false, completion: nil)
+    }
     
     //MARK:- Actions
     
@@ -107,10 +109,9 @@ extension LocckyViewController{
         let arrTmpLbls:[UILabel] = [lblKeyOne, lblKeyTwo, lblKeyThree, lblKeyFour]
         
         //--- Reset
-        for lbl in arrTmpLbls{
-            lbl.text = "O"
-        }
+        for lbl in arrTmpLbls{  lbl.text = "O"  }
         
+        //--- Set
         if arrPasscode.count <= arrTmpLbls.count{
             for index in 0..<arrPasscode.count{
                 print(index)
@@ -157,5 +158,22 @@ extension LocckyViewController{
             btn.layer.borderColor = UIColor.white.cgColor
             btn.layer.borderWidth = 1
         }
+    }
+}
+
+extension LocckyViewController{
+    fileprivate class func showViewControler(_ vc: UIViewController?) {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = UIViewController()
+        window.makeKeyAndVisible()
+        if let vc = vc {
+            window.rootViewController?.present(vc, animated: true)
+        }
+    }
+    
+    public class func present(){
+        let lvc = LocckyViewController()
+        lvc.modalTransitionStyle = .crossDissolve
+        LocckyViewController.showViewControler(lvc)
     }
 }
