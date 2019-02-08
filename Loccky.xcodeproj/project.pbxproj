@@ -12,6 +12,11 @@
 		0C81CFEA220D59B3002D8F26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFE8220D59B3002D8F26 /* Main.storyboard */; };
 		0C81CFEC220D59B5002D8F26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFEB220D59B5002D8F26 /* Assets.xcassets */; };
 		0C81CFEF220D59B5002D8F26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFED220D59B5002D8F26 /* LaunchScreen.storyboard */; };
+		0C81CFFA220D5A31002D8F26 /* LocckyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81CFF8220D5A31002D8F26 /* LocckyViewController.swift */; };
+		0C81CFFB220D5A31002D8F26 /* LocckyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFF9220D5A31002D8F26 /* LocckyViewController.xib */; };
+		0C81CFFF220D60AD002D8F26 /* imgFingerPrint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFFC220D60AD002D8F26 /* imgFingerPrint@2x.png */; };
+		0C81D000220D60AD002D8F26 /* imgFingerPrint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFFD220D60AD002D8F26 /* imgFingerPrint.png */; };
+		0C81D001220D60AD002D8F26 /* imgFingerPrint@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C81CFFE220D60AD002D8F26 /* imgFingerPrint@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		0C81CFEB220D59B5002D8F26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C81CFEE220D59B5002D8F26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C81CFF0220D59B5002D8F26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C81CFF8220D5A31002D8F26 /* LocckyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocckyViewController.swift; sourceTree = "<group>"; };
+		0C81CFF9220D5A31002D8F26 /* LocckyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocckyViewController.xib; sourceTree = "<group>"; };
+		0C81CFFC220D60AD002D8F26 /* imgFingerPrint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgFingerPrint@2x.png"; sourceTree = "<group>"; };
+		0C81CFFD220D60AD002D8F26 /* imgFingerPrint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgFingerPrint.png; sourceTree = "<group>"; };
+		0C81CFFE220D60AD002D8F26 /* imgFingerPrint@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgFingerPrint@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +66,41 @@
 			children = (
 				0C81CFE4220D59B3002D8F26 /* AppDelegate.swift */,
 				0C81CFE6220D59B3002D8F26 /* ViewController.swift */,
+				0C81CFF7220D5A05002D8F26 /* Loccky-Manager */,
+				0C81CFF6220D59CB002D8F26 /* Resources */,
+			);
+			path = Loccky;
+			sourceTree = "<group>";
+		};
+		0C81CFF6220D59CB002D8F26 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				0C81CFE8220D59B3002D8F26 /* Main.storyboard */,
 				0C81CFEB220D59B5002D8F26 /* Assets.xcassets */,
 				0C81CFED220D59B5002D8F26 /* LaunchScreen.storyboard */,
 				0C81CFF0220D59B5002D8F26 /* Info.plist */,
 			);
-			path = Loccky;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0C81CFF7220D5A05002D8F26 /* Loccky-Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0C81CFF8220D5A31002D8F26 /* LocckyViewController.swift */,
+				0C81CFF9220D5A31002D8F26 /* LocckyViewController.xib */,
+				0C81D002220D60B2002D8F26 /* Images */,
+			);
+			path = "Loccky-Manager";
+			sourceTree = "<group>";
+		};
+		0C81D002220D60B2002D8F26 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0C81CFFD220D60AD002D8F26 /* imgFingerPrint.png */,
+				0C81CFFC220D60AD002D8F26 /* imgFingerPrint@2x.png */,
+				0C81CFFE220D60AD002D8F26 /* imgFingerPrint@3x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +162,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C81CFEF220D59B5002D8F26 /* LaunchScreen.storyboard in Resources */,
+				0C81CFFF220D60AD002D8F26 /* imgFingerPrint@2x.png in Resources */,
+				0C81D001220D60AD002D8F26 /* imgFingerPrint@3x.png in Resources */,
+				0C81D000220D60AD002D8F26 /* imgFingerPrint.png in Resources */,
+				0C81CFFB220D5A31002D8F26 /* LocckyViewController.xib in Resources */,
 				0C81CFEC220D59B5002D8F26 /* Assets.xcassets in Resources */,
 				0C81CFEA220D59B3002D8F26 /* Main.storyboard in Resources */,
 			);
@@ -135,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C81CFFA220D5A31002D8F26 /* LocckyViewController.swift in Sources */,
 				0C81CFE7220D59B3002D8F26 /* ViewController.swift in Sources */,
 				0C81CFE5220D59B3002D8F26 /* AppDelegate.swift in Sources */,
 			);
@@ -284,7 +328,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 285KN3UUR9;
-				INFOPLIST_FILE = Loccky/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Loccky/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 285KN3UUR9;
-				INFOPLIST_FILE = Loccky/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Loccky/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
