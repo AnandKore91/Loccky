@@ -45,6 +45,7 @@ public class LocckyViewController: UIViewController {
         //--- Setup ui
         configureButtonUI([btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnZero])
         
+        //--- Add notifier
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
@@ -56,12 +57,12 @@ public class LocckyViewController: UIViewController {
     }
 
     @objc func willResignActive(){
+        //--- Remove previous VC.
         NotificationCenter.default.removeObserver(self)
         dismiss(animated: false, completion: nil)
     }
     
     //MARK:- Actions
-    
     @IBAction func passcodeEntered(_ sender: UIButton) {
         if LocckyViewController.isPasswordSet(){
             arrPasscode.append("\(sender.tag)")
@@ -96,20 +97,20 @@ public class LocckyViewController: UIViewController {
                 }
             }
         }
+        //--- Update labels
         validatePasscodeCount()
-        
     }
     
     @IBAction func btnErasePressed(_ sender: UIButton) {
-        if !arrPasscode.isEmpty{
+        if !arrPasscode.isEmpty{ //--- Check array is not empty
             arrPasscode.remove(at: arrPasscode.count - 1)
-            validatePasscodeCount()
+            validatePasscodeCount() //--- Update labels
         }
     }
     
     @IBAction func btnFingerPrintPressed(_ sender: UITapGestureRecognizer) {
-        var authError:NSError?
-        if (LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError)){
+        let biometrics:(available:Bool, error:Error?) = LocckyViewController.isBiometricsAvailable()
+        if biometrics.available{
             LAContext().evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To unlock the app.") { success, error in
                 DispatchQueue.main.async {
                     if success{
@@ -120,7 +121,7 @@ public class LocckyViewController: UIViewController {
                 }
             }
         }else{
-            lblInstructions.text = authError?.localizedDescription ?? ""
+            lblInstructions.text = biometrics.error?.localizedDescription ?? ""
         }
     }
 }
@@ -183,10 +184,26 @@ extension LocckyViewController{
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(btnFingerPrintPressed(_:)))
         imgFingerPrint.isUserInteractionEnabled = true
         imgFingerPrint.addGestureRecognizer(tapGestureRecognizer)
+        
+//        let biometrics:(available:Bool, error:Error?) = LocckyViewController.isBiometricsAvailable()
+//        if biometrics.available == false{
+//            imgFingerPrint.isHidden = true
+//        }
     }
 }
 
+//MARK:- Utility
 extension LocckyViewController{
+    
+    fileprivate class func isBiometricsAvailable() -> (Bool, Error?){
+        var authError:NSError?
+        if (LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError)){
+            return (true,nil)
+        }else{
+            return (false, authError)
+        }
+    }
+
     fileprivate class func showViewControler(_ vc: UIViewController?) {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIViewController()
