@@ -114,7 +114,7 @@ public class LocckyViewController: UIViewController {
             LAContext().evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To unlock the app.") { success, error in
                 DispatchQueue.main.async {
                     if success{
-                        self.dismiss(animated: true, completion: nil)
+                        self.willResignActive()
                     }else{
                         self.lblInstructions.text = error?.localizedDescription ?? ""
                     }
