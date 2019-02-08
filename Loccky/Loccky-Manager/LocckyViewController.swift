@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 public class LocckyViewController: UIViewController {
 
@@ -62,7 +63,6 @@ public class LocckyViewController: UIViewController {
     //MARK:- Actions
     
     @IBAction func passcodeEntered(_ sender: UIButton) {
-        print("Btn Pressed: \(sender.tag)")
         if LocckyViewController.isPasswordSet(){
             arrPasscode.append("\(sender.tag)")
             lblInstructions.text = "Enter Passcode"
@@ -101,7 +101,6 @@ public class LocckyViewController: UIViewController {
     }
     
     @IBAction func btnErasePressed(_ sender: UIButton) {
-        print("Btn erase pressed.")
         if !arrPasscode.isEmpty{
             arrPasscode.remove(at: arrPasscode.count - 1)
             validatePasscodeCount()
@@ -109,7 +108,20 @@ public class LocckyViewController: UIViewController {
     }
     
     @IBAction func btnFingerPrintPressed(_ sender: UITapGestureRecognizer) {
-        print("Btn fingerprint Pressed")
+        var authError:NSError?
+        if (LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError)){
+            LAContext().evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To unlock the app.") { success, error in
+                DispatchQueue.main.async {
+                    if success{
+                        self.dismiss(animated: true, completion: nil)
+                    }else{
+                        self.lblInstructions.text = error?.localizedDescription ?? ""
+                    }
+                }
+            }
+        }else{
+            lblInstructions.text = authError?.localizedDescription ?? ""
+        }
     }
 }
 
@@ -124,7 +136,6 @@ extension LocckyViewController{
         //--- Set
         if arrPasscode.count <= arrTmpLbls.count{
             for index in 0..<arrPasscode.count{
-                print(index)
                 let lbl = arrTmpLbls[index]
                 lbl.text = "X"
             }
@@ -168,6 +179,10 @@ extension LocckyViewController{
             btn.layer.borderColor = UIColor.white.cgColor
             btn.layer.borderWidth = 1
         }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(btnFingerPrintPressed(_:)))
+        imgFingerPrint.isUserInteractionEnabled = true
+        imgFingerPrint.addGestureRecognizer(tapGestureRecognizer)
     }
 }
 

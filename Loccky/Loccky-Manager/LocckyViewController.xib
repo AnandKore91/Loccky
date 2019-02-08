@@ -43,14 +43,11 @@
                         <constraint firstAttribute="width" constant="60" id="gMp-p7-6zc"/>
                         <constraint firstAttribute="height" constant="60" id="wea-mZ-uTb"/>
                     </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="vhF-rS-cmp" appends="YES" id="wrZ-4H-iph"/>
-                    </connections>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1WX-MD-LfK">
                     <rect key="frame" x="30" y="84" width="260" height="400"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Passcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6N-ay-Ob5">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Passcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R6N-ay-Ob5">
                             <rect key="frame" x="52.5" y="0.0" width="155.5" height="26"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -278,11 +275,6 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="-174.375" y="219.71830985915494"/>
         </view>
-        <tapGestureRecognizer id="vhF-rS-cmp">
-            <connections>
-                <action selector="btnFingerPrintPressed:" destination="-1" id="Mkm-WU-FpN"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="imgErase.png" width="50" height="50"/>
